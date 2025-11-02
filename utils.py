@@ -9,9 +9,9 @@ def perf_plot(labels, values):
     bars = ax.bar(labels, values, color=colors, width=0.5, edgecolor="black", linewidth=0.8)
     
     ax.set_yscale("log")
-    ax.set_title("Matmul Runtime Comparison", fontsize=10, pad=10)
-    ax.set_ylabel("Runtime mean (ms, log scale)", fontsize=8)
-    ax.set_xlabel("Implementation", fontsize=9)
+    ax.set_title(r"Matmul Performance ($M$, $K$, $N$ = 1024)", fontsize=10, pad=10)
+    ax.set_ylabel("Runtime mean (ms, log scale)", fontsize=8.5)
+    # ax.set_xlabel("Implementation", fontsize=9)
 
     ax.grid(axis="y", linestyle="--", alpha=0.6)
     ax.spines["top"].set_visible(False)
