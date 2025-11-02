@@ -24,7 +24,7 @@ PYBIND11_MODULE(<mod_tag>, m) {
 """
 
 
-class CompiledSource:
+class CompileSource:
     def __init__(self, name: str, source: str, backend: Targets):
         self.name = name
         self.source = source
@@ -34,7 +34,7 @@ class CompiledSource:
         return self.source
 
 
-def compile(op: me.MiddleEndOp, target: Targets, name: str = None) -> str:
+def emit(op: me.MiddleEndOp, target: Targets, name: str = None) -> str:
     if isinstance(op, me.Reduction):
         codegen = be.Reduction()
     else:
@@ -42,14 +42,14 @@ def compile(op: me.MiddleEndOp, target: Targets, name: str = None) -> str:
     name = name if name is not None else op.name
     code = codegen.gen(op, target)
     code = code.replace(op.name, name)
-    return CompiledSource(name, code, target)
+    return CompileSource(name, code, target)
 
 
 class Runtime:
     KNOWN_BACKENDS = (Targets.C,)
 
     @staticmethod
-    def _compile_c(sources: list[CompiledSource]) -> tuple[object, str]:
+    def _compile_c(sources: list[CompileSource]) -> tuple[object, str]:
         from torch.utils.cpp_extension import load
         code = "// This code is auto-generated.\n"
         code += "#include <torch/extension.h>\n\n\n"
@@ -87,7 +87,7 @@ class Runtime:
         return module, code
 
     @classmethod
-    def jit(cls, sources: list[CompiledSource] | CompiledSource) -> tuple[object, str]:
+    def jit(cls, sources: list[CompileSource] | CompileSource) -> tuple[object, str]:
         if not isinstance(sources, list):
             sources = [sources]
 
