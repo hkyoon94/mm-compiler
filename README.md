@@ -2,7 +2,7 @@
 
 A toy project for **end-to-end tensor reduction operation compiler**, providing
 
-1. simple frontend instruction:
+1. simple frontend instruction parser:
     ```r
     import src.frontend as fe
 
@@ -10,7 +10,7 @@ A toy project for **end-to-end tensor reduction operation compiler**, providing
     ir = fe.parse("[1024, 1024] @ [1024, 1024]")
     ```
 2. decent middle-end optimization passes, such as `.legalize()`, `.tile()`, `.reorder()`, and `.promote_invariants()`, etc.:
-    - Ex1) Legalizing Frontend instructions:
+    - Ex1) Legalizing Frontend expressions:
         ```r
         ir.legalize()
         print(ir)
@@ -76,6 +76,6 @@ A toy project for **end-to-end tensor reduction operation compiler**, providing
             [ 18.2749,  -4.9628,  -4.4434,  ..., -72.8047,  -9.5710,  15.6376]])
     ```
 
-### Check [DEMO](https://github.com/hkyoon94/mm-compiler/blob/main/demo.ipynb) file for demonstration.
+#### Check [DEMO](https://github.com/hkyoon94/mm-compiler/blob/main/demo.ipynb) file for demonstration.
 
 <img width="500" height="300" src="assets/perf.png" />
