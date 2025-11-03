@@ -5,7 +5,7 @@ CMAP = {
     "red": 31,
     "green": 32,
     "yellow": 33,
-    "blud": 34,
+    "blue": 34,
     "purple": 35,
     "cyan": 36,
 }
