@@ -4,7 +4,7 @@ A toy project for **end-to-end tensor reduction operation compiler**, providing
 
 - simple frontend instruction parser,
 - decent middle-end optimization passes, and
-- backend support for target specific code-emission and JIT compiled runtime.
+- backend support for target specific code-emission (e.g., to C++) and JIT compiled runtime.
 
 1. simple frontend instruction parser:
     ```r
