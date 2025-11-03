@@ -1,5 +1,7 @@
 # Tensor Reduction Operation Compiler
 
+#### Check [DEMO](https://github.com/hkyoon94/mm-compiler/blob/main/demo.ipynb) file for demonstration.
+
 A toy project for **end-to-end tensor reduction operation compiler**, providing
 
 - simple frontend instruction parser,
@@ -79,7 +81,5 @@ A toy project for **end-to-end tensor reduction operation compiler**, providing
             [-16.5857,   9.2976,   5.3926,  ...,  34.6411,  -0.2485,  -4.1970],
             [ 18.2749,  -4.9628,  -4.4434,  ..., -72.8047,  -9.5710,  15.6376]])
     ```
-
-#### Check [DEMO](https://github.com/hkyoon94/mm-compiler/blob/main/demo.ipynb) file for demonstration.
 
 <img width="500" height="300" src="assets/perf.png" />
