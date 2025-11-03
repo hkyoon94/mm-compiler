@@ -2,6 +2,10 @@
 
 A toy project for **end-to-end tensor reduction operation compiler**, providing
 
+- simple frontend instruction parser,
+- decent middle-end optimization passes, and
+- backend support for target specific code-emission and JIT compiled runtime.
+
 1. simple frontend instruction parser:
     ```r
     import src.frontend as fe
@@ -9,7 +13,7 @@ A toy project for **end-to-end tensor reduction operation compiler**, providing
     # Example: indicates M, K, N = 1024, 768, 512 matmul kernel IR
     ir = fe.parse("[1024, 1024] @ [1024, 1024]")
     ```
-2. decent middle-end optimization passes, such as `.legalize()`, `.tile()`, `.reorder()`, and `.promote_invariants()`, etc.:
+2. middle-end optimization passes, such as `.legalize()`, `.tile()`, `.reorder()`, and `.promote_invariants()`, etc.:
     - Ex1) Legalizing Frontend expressions:
         ```r
         ir.legalize()
